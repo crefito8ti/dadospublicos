@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>API de Transparência - Identificação</title>
+
+  <!-- CSS do Swagger UI (CDN) -->
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist/swagger-ui.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    #swagger-ui {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="swagger-ui"></div>
+
+  <!-- JS do Swagger UI (CDN) -->
+  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js" crossorigin></script>
+  <script src="https://unpkg.com/swagger-ui-dist/swagger-ui-standalone-preset.js" crossorigin></script>
+
+  <script>
+    window.onload = function() {
+      // URL do seu endpoint OpenAPI do Apps Script
+      const openApiUrl = 'https://script.google.com/macros/s/AKfycbwnKI83ApPMOwnkq-Hz0hVFra9pc_56K87QXKdw8m3wJgVZWqfaqpJYyTGjU3WMRHwIFQ/exec?recurso=openapi';
+
+      const ui = SwaggerUIBundle({
+        url: openApiUrl,
+        dom_id: '#swagger-ui',
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIStandalonePreset
+        ],
+        layout: "StandaloneLayout"
+      });
+
+      window.ui = ui;
+    };
+  </script>
+</body>
+</html>
